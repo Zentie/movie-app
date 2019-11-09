@@ -12,11 +12,11 @@
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/
-$movie-app-primary: mat-palette($mat-indigo);
-$movie-app-accent: mat-palette($mat-pink, A200, A100, A400);
+$movie-app-primary: mat-palette($mat-cyan);
+$movie-app-accent: mat-palette($mat-amber, A200, A100, A400);
 
 // The warn palette is optional (defaults to red).
-$movie-app-warn: mat-palette($mat-red);
+$movie-app-warn: mat-palette($mat-deep-orange);
 
 // Create the theme object (a Sass map containing all of the palettes).
 $movie-app-theme: mat-light-theme($movie-app-primary, $movie-app-accent, $movie-app-warn);
@@ -29,4 +29,9 @@ $movie-app-theme: mat-light-theme($movie-app-primary, $movie-app-accent, $movie-
 /* You can add global styles to this file, and also import other style files */
 
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    background-color: #1d1b1b;
+    color: white;
+}
