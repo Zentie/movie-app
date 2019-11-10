@@ -1,6 +1,7 @@
 # MovieApp
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.18.
+run npm install in terminal, and then ng serve --open
 
 ## Development server
 
