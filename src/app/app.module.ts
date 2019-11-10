@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { VideoSearchComponent } from './video-search/video-search.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { VideoResultsComponent } from './video-results/video-results.component';
@@ -39,6 +40,7 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatTableModule} from '@angular/material/table';
 import {MatSortModule} from '@angular/material/sort';
 import {MatPaginatorModule} from '@angular/material/paginator';
+import { VideoApiService } from './api-services/video-api.service';
 
 @NgModule({
   declarations: [
@@ -51,6 +53,7 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     VideoDialogComponent
   ],
   imports: [
+    HttpClientModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
@@ -86,7 +89,9 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     MatSortModule,
     MatPaginatorModule
   ],
-  providers: [],
+  providers: [
+    VideoApiService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

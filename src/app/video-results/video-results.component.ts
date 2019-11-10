@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { VideoDialogComponent } from '../video-dialog/video-dialog.component';
+import { VideoApiService } from '../api-services/video-api.service';
 
 @Component({
   selector: 'app-video-results',
@@ -9,9 +10,13 @@ import { VideoDialogComponent } from '../video-dialog/video-dialog.component';
 })
 export class VideoResultsComponent implements OnInit {
 
+
   constructor(
-    public dialog: MatDialog
-  ) { }
+    public dialog: MatDialog,
+    private videoService: VideoApiService
+  ) { 
+    
+  }
 
   ngOnInit() {
 
@@ -29,5 +34,5 @@ export class VideoResultsComponent implements OnInit {
       console.log('The dialog was closed');
     });
   }
-
+ 
 }
