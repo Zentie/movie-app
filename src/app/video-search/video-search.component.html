@@ -1,6 +1,6 @@
 <mat-form-field>
-    <input matInput placeholder="Search Movie">
+    <input matInput placeholder="Search Movie" [value]="searchInput" (input)="onSearchInput($event.target.value)">
 </mat-form-field>
-<button mat-icon-button>
+<button mat-icon-button (click)="clearSerach()">
     <mat-icon>highlight_off</mat-icon>
 </button>

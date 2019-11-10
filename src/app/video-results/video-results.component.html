@@ -1,12 +1,14 @@
 <div class="video-results-container">
-    <div class="video-results-card">
-        <mat-card (click)="openDialog()">
-            <img mat-card-image src="../../assets/img/solo.jpg">
+
+    <div class="video-results-card" *ngFor="let video of videoSearchResults">
+        <mat-card (click)="openDialog(video)">
+            <img mat-card-image src="{{video.backdrop_path}}">
             <mat-card-content>
-                <div>Solo: A Star Wars Story</div>
-                <div>May 25, 2018</div>
+                <div>{{video.original_title}}</div>
+                <div>{{video.release_date}}</div>
                 <div>Action, Adventure, Science Fiction</div>
             </mat-card-content>
         </mat-card>
     </div>
+
 </div>

@@ -6,19 +6,13 @@
 
 <div class="video-dialog-container">
     <div class="video-dialog-image">
-        <img src="../../assets/img/solo.jpg">
+        <img src="{{video.backdrop_path}}">
     </div>
     <div class="video-dialog-content">
-        <h2><strong>Solo: A Star Wars Story</strong></h2>
-        <p><strong>Never tell him the odds.</strong></p>
-        <p>Released May 25, 2018</p>
-        <p>
-            Lorem Ipsum is simply dummy text of the printing
-            and typesetting industry. Lorem Ipsum has been the
-            industry's standard dummy text ever since the 1500s,
-            when an unknown printer took a galley of type and
-            scrambled it to make a type specimen book.
-        </p>
+        <h2><strong>{{video.original_title}}</strong></h2>
+        <p><strong>{{video.title}}</strong></p>
+        <p>{{video.release_date}}</p>
+        <p>{{video.overview}}</p>
         <div>
             <div class="video-dialog-detail">
                 <div class="video-dialog-detail-name">Country</div>
@@ -26,7 +20,7 @@
             </div>
             <div class="video-dialog-detail">
                 <div class="video-dialog-detail-name">Language</div>
-                <div class="video-dialog-detail-value">English</div>
+                <div class="video-dialog-detail-value">{{video.original_language}}</div>
             </div>
             <div class="video-dialog-detail">
                 <div class="video-dialog-detail-name">Genre</div>
@@ -36,6 +30,12 @@
                 <div class="video-dialog-detail-name">Length</div>
                 <div class="video-dialog-detail-value">135 mins</div>
             </div>
+            <div class="video-dialog-detail">
+                    <div class="video-dialog-detail-name">IMDB Link</div>
+                    <div class="video-dialog-detail-value">
+                        <a mat-raised-button href="http://www.facebook.com" target="_blank">To IMDB</a>
+                    </div>
+                </div>
         </div>
     </div>
 </div>
