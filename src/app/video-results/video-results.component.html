@@ -2,11 +2,11 @@
 
     <div class="video-results-card" *ngFor="let video of videoSearchResults">
         <mat-card (click)="openDialog(video)">
-            <img mat-card-image src="{{video.backdrop_path}}">
+            <img mat-card-image src="{{video.imageUrl}}">
             <mat-card-content>
-                <div>{{video.original_title}}</div>
-                <div>{{video.release_date}}</div>
-                <div>Action, Adventure, Science Fiction</div>
+                <div>{{video.title}}</div>
+                <div>{{video.releaseDate}}</div>
+                <div>{{video.genre}}</div>
             </mat-card-content>
         </mat-card>
     </div>

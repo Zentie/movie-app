@@ -6,34 +6,33 @@
 
 <div class="video-dialog-container">
     <div class="video-dialog-image">
-        <img src="{{video.backdrop_path}}">
+        <img src="{{video.imageUrl}}">
     </div>
     <div class="video-dialog-content">
-        <h2><strong>{{video.original_title}}</strong></h2>
-        <p><strong>{{video.title}}</strong></p>
-        <p>{{video.release_date}}</p>
-        <p>{{video.overview}}</p>
+        <h2><strong>{{video.title}}</strong></h2>
+        <p>{{video.releaseDate}}</p>
+        <p>{{video.description}}</p>
         <div>
             <div class="video-dialog-detail">
                 <div class="video-dialog-detail-name">Country</div>
-                <div class="video-dialog-detail-value">United States of America</div>
-            </div>
-            <div class="video-dialog-detail">
-                <div class="video-dialog-detail-name">Language</div>
-                <div class="video-dialog-detail-value">{{video.original_language}}</div>
+                <div class="video-dialog-detail-value">{{video.country}}</div>
             </div>
             <div class="video-dialog-detail">
                 <div class="video-dialog-detail-name">Genre</div>
-                <div class="video-dialog-detail-value">Action, Adventure, Science Fiction</div>
+                <div class="video-dialog-detail-value">
+                    <span *ngFor="let subgenre of video.genre">
+                        {{subgenre}}
+                    </span>
+                </div>
             </div>
             <div class="video-dialog-detail">
                 <div class="video-dialog-detail-name">Length</div>
-                <div class="video-dialog-detail-value">135 mins</div>
+                <div class="video-dialog-detail-value">{{video.duration}}</div>
             </div>
             <div class="video-dialog-detail">
                     <div class="video-dialog-detail-name">IMDB Link</div>
                     <div class="video-dialog-detail-value">
-                        <a mat-raised-button href="http://www.facebook.com" target="_blank">To IMDB</a>
+                        <a mat-raised-button href="{{video.imdbLink}}" target="_blank">To IMDB</a>
                     </div>
                 </div>
         </div>

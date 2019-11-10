@@ -1,5 +1,7 @@
+import { VideoModel } from './../model/video.model';
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { VideoApiService } from '../api-services/video-api.service';
+import { GenreModel } from '../model/genre.model';
 
 @Component({
   selector: 'app-video-search',
@@ -8,7 +10,9 @@ import { VideoApiService } from '../api-services/video-api.service';
 })
 export class VideoSearchComponent implements OnInit {
 
-  videoSearchResults: any
+
+  genres: GenreModel[];
+  videoSearchResults: VideoModel[]
   searchInput: string = ''
   resultPage: number = 1
   @Output() videoSearchResultsEmitter = new EventEmitter<any[]>();
@@ -20,19 +24,24 @@ export class VideoSearchComponent implements OnInit {
   }
 
   ngOnInit() {
-
+    this.videoService.getGenres().subscribe(res => {
+      this.genres = res as GenreModel[];
+    })
   }
 
-  sendVideoSearchResults(results) {
-    this.videoSearchResultsEmitter.emit(results);
+  sendVideoSearchResults(videos: VideoModel[]) {
+    this.videoSearchResultsEmitter.emit(videos);
   }
 
   clearSerach() {
     this.searchInput = '';
     this.onSearchInput(this.searchInput)
+    this.videoSearchResults = [];
   }
 
   onSearchInput(searchInput: string) {
+    this.videoSearchResults = [];
+    searchInput.split(' ').join('&') 
     if (searchInput.length >= 3) {
       this.searchInput = searchInput
       this.searchForVideos(this.searchInput, this.resultPage)
@@ -42,17 +51,33 @@ export class VideoSearchComponent implements OnInit {
     }
   }
 
-  updateResultsImageUrl(results) {
-    results.forEach(result => {
-      result.backdrop_path = 'https://image.tmdb.org/t/p/w300_and_h450_bestv2' + result.backdrop_path
+  updateResultsImageUrl(videos: VideoModel[]) {
+    videos.forEach(video => {
+      video.imageUrl = 'https://image.tmdb.org/t/p/w300_and_h450_bestv2' + video.imageUrl
     });
-    return results
+    return videos
   }
   
+  getVideoData(videoResults: any[]) {
+    videoResults.map( videoResult => {
+      let video: VideoModel = {
+        id: videoResult.id,
+        imageUrl: videoResult.backdrop_path,
+        title: videoResult.original_title,
+        description: videoResult.overview,
+        genre: ['Horror', 'Comedy'], //this.getGenres()
+        releaseDate: videoResult.release_date,
+        imdbLink: 'http://imdb.com',
+        duration: '1h 30m',
+        country: 'USA'
+      }
+      this.videoSearchResults.push(video);
+    })
+  }
+
   searchForVideos(searchInput: string, page: number) {
     this.videoService.getVideos(searchInput, page).subscribe(res => {
-      this.videoSearchResults = res
-      this.videoSearchResults = this.videoSearchResults.results
+      this.getVideoData(res);
       this.videoSearchResults = this.updateResultsImageUrl(this.videoSearchResults)
       this.sendVideoSearchResults(this.videoSearchResults)
     })

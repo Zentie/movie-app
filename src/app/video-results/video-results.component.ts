@@ -1,3 +1,4 @@
+import { VideoModel } from './../model/video.model';
 import { Component, OnInit, Input } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { VideoDialogComponent } from '../video-dialog/video-dialog.component';
@@ -10,7 +11,7 @@ import { VideoApiService } from '../api-services/video-api.service';
 })
 export class VideoResultsComponent implements OnInit {
 
-  @Input() videoSearchResults: any[]
+  @Input() videoSearchResults: VideoModel[]
 
   constructor(
     public dialog: MatDialog,
@@ -23,16 +24,13 @@ export class VideoResultsComponent implements OnInit {
 
   }
   
-  openDialog(video: any): void {
+  openDialog(video: VideoModel): void {
     const dialogRef = this.dialog.open(VideoDialogComponent, {
       width: '700px',
       data: video
     });
-
-    console.log('The dialog was opened');
-
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
+
     });
   }
  

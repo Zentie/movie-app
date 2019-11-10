@@ -1,3 +1,4 @@
+import { VideoModel } from './model/video.model';
 import { Component} from '@angular/core';
 import { VideoSearchComponent } from './video-search/video-search.component';
 
@@ -9,11 +10,9 @@ import { VideoSearchComponent } from './video-search/video-search.component';
 export class AppComponent {
   title = 'movie-app';
 
-  videoSearchResults: any;
+  videoSearchResults: VideoModel[];
 
-  recieveVideoSearchResults(results) {
-    this.videoSearchResults = results;
-    console.log('videoSearchResults', this.videoSearchResults)
+  recieveVideoSearchResults(videos: VideoModel[]) {
+    this.videoSearchResults = videos;
   }
-
 }
