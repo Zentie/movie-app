@@ -10,6 +10,7 @@ export class VideoApiService {
     
     private movieUrl = 'https://api.themoviedb.org/3/search/movie'
     private genreUrl = 'https://api.themoviedb.org/3/genre/movie/list'
+    private movieDetailUrl = 'https://api.themoviedb.org/3/movie'
     private apiKey = '1c5abaaeaa13c66b570ad3042a0d51f4';
 
     constructor(private _httpClient: HttpClient ) { }
@@ -19,6 +20,14 @@ export class VideoApiService {
         return this._httpClient.get(searchUrl)
             .pipe(
                 map((res: any) => { return res.results })
+            );
+    }
+
+    getVideoById(videoId: number) {
+        let searchUrl = `${this.movieDetailUrl}/${videoId}?api_key=${this.apiKey}`
+        return this._httpClient.get(searchUrl)
+            .pipe(
+                map((res: any) => { return res })
             );
     }
 

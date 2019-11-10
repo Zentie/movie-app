@@ -24,6 +24,11 @@ export class VideoSearchComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.getGenres()
+
+  }
+
+  getGenres() {
     this.videoService.getGenres().subscribe(res => {
       this.genres = res as GenreModel[];
     })
@@ -65,14 +70,22 @@ export class VideoSearchComponent implements OnInit {
         imageUrl: videoResult.backdrop_path,
         title: videoResult.original_title,
         description: videoResult.overview,
-        genre: ['Horror', 'Comedy'], //this.getGenres()
+        genre: this.assignGenres(videoResult.genre_ids),
         releaseDate: videoResult.release_date,
-        imdbLink: 'http://imdb.com',
-        duration: '1h 30m',
-        country: 'USA'
+        imdbLink: 'https://www.imdb.com/title/',
+        duration: '',
+        country: []
       }
       this.videoSearchResults.push(video);
     })
+  }
+
+  assignGenres(ids: number[]) {
+    let genres: string[] = []
+    ids.forEach(id => {
+      genres.push(this.genres.find(x => x.id === id).name)
+    })
+    return genres
   }
 
   searchForVideos(searchInput: string, page: number) {

@@ -9,5 +9,5 @@ export interface VideoModel {
     releaseDate: string //TODO: format this to Date;
     imdbLink: string;
     duration: string //TODO: format this to Time;
-    country: string;
+    country: string[];
 }
