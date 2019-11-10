@@ -1,0 +1,38 @@
+.video-dialog {
+
+    &-header {
+        height: 48px;
+    }
+
+    &-close {
+        float: right;
+    }
+
+    &-container {
+        display: flex;
+    }
+
+    &-image {
+        flex: 1;
+        margin-top: 0;
+    }
+
+    &-content {
+        flex: 2;
+        padding: 18px 0 18px 18px;
+        padding-top: 0;
+        h2 {
+            margin-top: 0;
+        }
+    }
+
+    &-detail {
+        display: flex;
+        &-name {
+            flex: 1;
+        }
+        &-value {
+            flex: 2;
+        }
+    }
+}

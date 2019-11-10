@@ -14,11 +14,12 @@ export class VideoResultsComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+
   }
 
   openDialog(): void {
     const dialogRef = this.dialog.open(VideoDialogComponent, {
-      width: '250px',
+      width: '700px',
       data: ''
     });
 

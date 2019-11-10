@@ -1,2 +1,41 @@
-<p>video-dialog works!</p>
-<button mat-raised-button color="accent">bello</button>
+<div class="video-dialog-header">
+    <button mat-icon-button class="video-dialog-close" (click)="dialogRef.close()">
+        <mat-icon>close</mat-icon>
+    </button>
+</div>
+
+<div class="video-dialog-container">
+    <div class="video-dialog-image">
+        <img src="../../assets/img/solo.jpg">
+    </div>
+    <div class="video-dialog-content">
+        <h2><strong>Solo: A Star Wars Story</strong></h2>
+        <p><strong>Never tell him the odds.</strong></p>
+        <p>Released May 25, 2018</p>
+        <p>
+            Lorem Ipsum is simply dummy text of the printing
+            and typesetting industry. Lorem Ipsum has been the
+            industry's standard dummy text ever since the 1500s,
+            when an unknown printer took a galley of type and
+            scrambled it to make a type specimen book.
+        </p>
+        <div>
+            <div class="video-dialog-detail">
+                <div class="video-dialog-detail-name">Country</div>
+                <div class="video-dialog-detail-value">United States of America</div>
+            </div>
+            <div class="video-dialog-detail">
+                <div class="video-dialog-detail-name">Language</div>
+                <div class="video-dialog-detail-value">English</div>
+            </div>
+            <div class="video-dialog-detail">
+                <div class="video-dialog-detail-name">Genre</div>
+                <div class="video-dialog-detail-value">Action, Adventure, Science Fiction,</div>
+            </div>
+            <div class="video-dialog-detail">
+                <div class="video-dialog-detail-name">Length</div>
+                <div class="video-dialog-detail-value">135 mins</div>
+            </div>
+        </div>
+    </div>
+</div>
