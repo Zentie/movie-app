@@ -47,6 +47,9 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     VideoResultsComponent,
     VideoDialogComponent
   ],
+  entryComponents: [
+    VideoDialogComponent
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,

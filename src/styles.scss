@@ -19,7 +19,7 @@ $movie-app-accent: mat-palette($mat-amber, A200, A100, A400);
 $movie-app-warn: mat-palette($mat-deep-orange);
 
 // Create the theme object (a Sass map containing all of the palettes).
-$movie-app-theme: mat-light-theme($movie-app-primary, $movie-app-accent, $movie-app-warn);
+$movie-app-theme: mat-dark-theme($movie-app-primary, $movie-app-accent, $movie-app-warn);
 
 // Include theme styles for core and each component used in your app.
 // Alternatively, you can import and @include the theme mixins for each component
@@ -32,6 +32,6 @@ html, body { height: 100%; }
 body {
     margin: 0;
     font-family: Roboto, "Helvetica Neue", sans-serif;
-    background-color: #1d1b1b;
+    background-color: black;
     color: white;
 }

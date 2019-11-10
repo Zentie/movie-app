@@ -1,0 +1,27 @@
+.video-results {
+    &-container {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    &-card {
+        flex-grow: 1;
+        width: 33%;
+    }
+}
+
+.mat-card {
+    margin: 15px;
+    height: 300px;
+    width: 240px;
+    padding: 0 0 24px 0;
+    img {
+        object-fit: cover; /*this makes de image in src fit to the size of specified below*/
+        height: 280px;
+        width: 240px;
+    }
+
+    :hover {
+        cursor: pointer;
+    }
+}
